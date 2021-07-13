@@ -2,7 +2,8 @@ import React from 'react';
 import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 
-interface IExpense {
+export interface IExpense {
+  id?: string;
   title: string;
   amount: number;
   date: Date;
