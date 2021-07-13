@@ -3,8 +3,8 @@ import './ExpenseDate.css';
 
 const ExpenseDate = ({ date }: { date: Date }) => {
   const month = date.toLocaleString('en-US', { month: 'long' });
-  const year = date.toLocaleString('en-US', { year: '2-digit' });
-  const day = date.getFullYear();
+  const year = date.getFullYear();
+  const day = date.toLocaleString('en-US', { year: '2-digit' });
 
   return (
     <div className="expense-date">
