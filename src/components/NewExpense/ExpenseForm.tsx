@@ -1,27 +1,47 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import './ExpenseForm.css';
 
-const ExpenseForm = () => (
-  <form>
-    <div className="new-expense__controls">
-      <div className="new-expense__control">
-        <label>Title</label>
-        <input type="text" />
+const ExpenseForm = () => {
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [date, setDate] = useState('');
+
+  const onChangeHandler = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    switch (target.name) {
+      case 'title':
+        setTitle(target.value);
+        break;
+      case 'amount':
+        setAmount(+target.value);
+        break;
+      case 'date':
+        setDate(target.value);
+        break;
+    }
+  };
+
+  return (
+    <form>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
+          <label>Title</label>
+          <input name="title" type="text" onChange={onChangeHandler} />
+        </div>
+        <div className="new-expense__control">
+          <label>Amount</label>
+          <input name="amount" type="number" min="0.01" step="0.01" onChange={onChangeHandler} />
+        </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input name="date" type="date" min="2019-01-01" max="2022-12-31" onChange={onChangeHandler} />
+        </div>
       </div>
-      <div className="new-expense__control">
-        <label>Amount</label>
-        <input type="number" min="0.01" step="0.01" />
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
       </div>
-      <div className="new-expense__control">
-        <label>Date</label>
-        <input type="date" min="2019-01-01" max="2022-12-31" />
-      </div>
-    </div>
-    <div className="new-expense__actions">
-      <button type="submit">Add Expense</button>
-    </div>
-  </form>
-);
+    </form>
+  );
+};
 
 export default ExpenseForm;
