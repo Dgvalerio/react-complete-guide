@@ -5,8 +5,10 @@ import { IExpense } from '../Expenses/Expenses';
 
 const ExpenseForm = ({
   onSaveExpenseData,
+  onCancel,
 }: {
   onSaveExpenseData: (expense: IExpense) => void;
+  onCancel: () => void;
 }): JSX.Element => {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(0);
@@ -88,6 +90,9 @@ const ExpenseForm = ({
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
