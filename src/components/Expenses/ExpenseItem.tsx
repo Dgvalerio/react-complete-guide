@@ -13,13 +13,15 @@ const ExpenseItem = ({
   amount: number;
   date: Date;
 }): JSX.Element => (
-  <Card className="expense-item">
-    <ExpenseDate date={date} />
-    <div className="expense-item__description">
-      <h2>{title}</h2>
-      <div className="expense-item__price">${amount}</div>
-    </div>
-  </Card>
+  <li>
+    <Card className="expense-item">
+      <ExpenseDate date={date} />
+      <div className="expense-item__description">
+        <h2>{title}</h2>
+        <div className="expense-item__price">${amount}</div>
+      </div>
+    </Card>
+  </li>
 );
 
 export default ExpenseItem;
