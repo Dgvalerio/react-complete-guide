@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
+
 import Expenses, { IExpense } from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
-const App = () => {
+const App: FC = () => {
   const [expenses, setExpenses] = useState<IExpense[]>([
     {
       id: 'e1',
@@ -25,12 +26,15 @@ const App = () => {
     },
   ]);
 
-  const addExpenseHandler = (expense: IExpense) => setExpenses((prev) => [...prev, expense]);
+  const addExpenseHandler = (expense: IExpense) =>
+    setExpenses((prev: IExpense[]) => [...prev, expense]);
 
-  return (<>
-    <NewExpense onAddExpense={addExpenseHandler} />
-    <Expenses expenses={expenses} />
-  </>);
+  return (
+    <>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
+    </>
+  );
 };
 
 export default App;

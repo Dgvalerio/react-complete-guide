@@ -1,14 +1,19 @@
 import React from 'react';
 
-import ExpenseForm from './ExpenseForm';
-import './NewExpense.css';
 import { IExpense } from '../Expenses/Expenses';
+import ExpenseForm from './ExpenseForm';
 
-const NewExpense = ({ onAddExpense }: { onAddExpense: (expense: IExpense) => void }) => {
+import './NewExpense.css';
+
+const NewExpense = ({
+  onAddExpense,
+}: {
+  onAddExpense: (expense: IExpense) => void;
+}): JSX.Element => {
   const saveExpenseDataHandler = (enteredExpenseData: IExpense) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.random().toString()
+      id: Math.random().toString(),
     };
 
     onAddExpense(expenseData);

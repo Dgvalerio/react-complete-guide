@@ -1,9 +1,18 @@
 import React from 'react';
-import ExpenseDate from './ExpenseDate';
+
 import Card from '../UI/Card';
+import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
 
-const ExpenseItem = ({ title, amount, date }: { title: string; amount: number; date: Date; }) => (
+const ExpenseItem = ({
+  title,
+  amount,
+  date,
+}: {
+  title: string;
+  amount: number;
+  date: Date;
+}): JSX.Element => (
   <Card className="expense-item">
     <ExpenseDate date={date} />
     <div className="expense-item__description">

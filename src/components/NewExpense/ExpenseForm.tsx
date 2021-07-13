@@ -3,7 +3,11 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import './ExpenseForm.css';
 import { IExpense } from '../Expenses/Expenses';
 
-const ExpenseForm = ({ onSaveExpenseData }: { onSaveExpenseData: (expense: IExpense) => void }) => {
+const ExpenseForm = ({
+  onSaveExpenseData,
+}: {
+  onSaveExpenseData: (expense: IExpense) => void;
+}): JSX.Element => {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState('');
@@ -28,6 +32,7 @@ const ExpenseForm = ({ onSaveExpenseData }: { onSaveExpenseData: (expense: IExpe
         setDate(target.value);
         // setUserInput((prevState) => ({ ...prevState, enteredDate: target.value }))
         break;
+      default:
     }
   };
 
@@ -52,15 +57,34 @@ const ExpenseForm = ({ onSaveExpenseData }: { onSaveExpenseData: (expense: IExpe
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input name="title" type="text" value={title} onChange={onChangeHandler} />
+          <input
+            name="title"
+            type="text"
+            value={title}
+            onChange={onChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input name="amount" type="number" min="0.01" step="0.01" value={amount} onChange={onChangeHandler} />
+          <input
+            name="amount"
+            type="number"
+            min="0.01"
+            step="0.01"
+            value={amount}
+            onChange={onChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input name="date" type="date" min="2019-01-01" max="2022-12-31" value={date} onChange={onChangeHandler} />
+          <input
+            name="date"
+            type="date"
+            min="2019-01-01"
+            max="2022-12-31"
+            value={date}
+            onChange={onChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__actions">

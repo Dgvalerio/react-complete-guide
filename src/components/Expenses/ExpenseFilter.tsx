@@ -2,8 +2,15 @@ import React, { ChangeEvent } from 'react';
 
 import './ExpenseFilter.css';
 
-const ExpenseFilter = ({ selected, onChangeFilter }: { selected: string, onChangeFilter: (year: string) => void }) => {
-  const dropdownChangeHandler = ({ target }: ChangeEvent<HTMLSelectElement>) => onChangeFilter(target.value);
+const ExpenseFilter = ({
+  selected,
+  onChangeFilter,
+}: {
+  selected: string;
+  onChangeFilter: (year: string) => void;
+}): JSX.Element => {
+  const dropdownChangeHandler = ({ target }: ChangeEvent<HTMLSelectElement>) =>
+    onChangeFilter(target.value);
 
   return (
     <div className="expenses-filter">
